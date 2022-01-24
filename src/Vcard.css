@@ -1,0 +1,178 @@
+input {
+    /* background-color: #e0eef3; */
+    font-family: "Quicksand", sans-serif;
+}
+
+p {
+    font-size: 1.1rem;
+    animation: textAppear 1.5s;
+    word-break: break-word;
+    margin-bottom: 0.2em;
+}
+
+@keyframes textAppear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.form {
+    margin: 1.3em auto;
+    width: 80%;
+    height: 14%;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+}
+
+.form input {
+    width: 100%;
+    height: 100%;
+    padding-top: 1.6em;
+    border: none;
+    outline: none;
+}
+
+.form label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 2px solid #c4c4c4;
+}
+
+.form label::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid black;
+    transform: translateX(-150%);
+    transition: transform 0.3s ease;
+}
+
+.content-name {
+    position: absolute;
+    bottom: 0.2em;
+    transition: all 0.3s ease;
+}
+
+.form input:focus + .label-name .content-name,
+.form input:valid + .label-name .content-name,
+.form input:read-only + .label-name .content-name {
+    transform: translateY(-120%);
+    font-size: 0.9rem;
+    color: #c4c4c4;
+}
+
+.form
+    input:focus
+    + .label-name
+    .rightAns
+    .form
+    input:valid
+    + .label-name
+    .rightAns,
+.form input:read-only + .label-name .rightAns {
+    transform: translateY(-110%);
+    font-size: 1rem;
+    color: rgb(35, 150, 35);
+}
+.form input:focus + .label-name::after,
+.form input:valid + .label-name::after,
+.form input:read-only + .label-name::after {
+    transform: translateX(0%);
+}
+
+.card {
+    text-align: center;
+    width: 25%;
+    /* padding: 1em; */
+    margin: 2em;
+    /* border: 1px solid black; */
+}
+
+@media (max-width: 1200px) {
+    .card {
+        width: 85%;
+    }
+}
+
+.clues {
+    word-break: break-all;
+    text-align: center;
+    padding: 6em;
+    margin-bottom: 1em;
+    /* border: 1px solid black; */
+    border-radius: 1em;
+    background-color: #c4c4c4;
+    transition: all 0.7s ease;
+}
+
+.green {
+    animation: appearGreen 1.5s;
+    animation-fill-mode: forwards;
+}
+
+.yellow {
+    animation: appearYellow 1.5s;
+    animation-fill-mode: forwards;
+}
+
+.orange {
+    animation: appearOrange 1.5s;
+    animation-fill-mode: forwards;
+}
+
+.red {
+    animation: appearRed 1.5s;
+    animation-fill-mode: forwards;
+    color: white;
+}
+
+.label-name span .rightAns {
+    color: red;
+}
+
+@keyframes appearGreen {
+    from {
+        background-color: #c4c4c4;
+    }
+    to {
+        background-color: rgb(60, 194, 60);
+    }
+}
+
+@keyframes appearYellow {
+    from {
+        background-color: #c4c4c4;
+    }
+    to {
+        background-color: #ffef00;
+    }
+}
+
+@keyframes appearOrange {
+    from {
+        background-color: #ffef00;
+    }
+    to {
+        background-color: orange;
+    }
+}
+
+@keyframes appearRed {
+    from {
+        background-color: orange;
+    }
+    to {
+        background-color: rgb(231, 31, 31);
+    }
+}
